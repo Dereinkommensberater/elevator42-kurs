@@ -279,6 +279,7 @@ const MODULES = [
   { n:8,  title:"Umsetzung & Team",  sub:"Strukturen aufbauen",                 color:"#1B5E48" },
   { n:9,  title:"Marketing",         sub:"Marketing & Wachstum",                color:"#1B2631" },
   { n:10, title:"Controlling",       sub:"Optimierung & KPIs",                  color:"#1F4E79" },
+  { n:"Teaser", title:"Teaser-Modul", sub:"Mehr Privatpatienten & Selbstzahler gewinnen", color:"#893163" },
 ];
 
 const WORK_MODULES = [1,2,3,4,5,8,9];
@@ -321,12 +322,14 @@ function renderGrids() {
   const presGrid = document.getElementById('pres-grid');
   presGrid.innerHTML = '';
   MODULES.forEach(m => {
-    const num = String(m.n).padStart(2,'0');
-    const pptxPath = `praesentationen-pptx/${v}/Elevator42_Modul${m.n}_Slides.pptx`;
+    const isTeaser = m.n === "Teaser";
+    const num = isTeaser ? "" : String(m.n).padStart(2,'0');
+    const label = isTeaser ? "Teaser" : `Modul ${num}`;
+    const pptxPath = `praesentationen-pptx/${v}/Elevator42_Modul${isTeaser ? 'Teaser' : m.n}_Slides.pptx`;
     presGrid.innerHTML += `
       <div class="card">
         <div class="card-header" style="background:${m.color}">
-          <div class="card-num" style="display:flex;align-items:center;gap:6px;">Modul ${num} ${vBadge}</div>
+          <div class="card-num" style="display:flex;align-items:center;gap:6px;">${label} ${vBadge}</div>
           <div class="card-title">${m.title}</div>
           <div class="card-sub">${m.sub}</div>
         </div>
