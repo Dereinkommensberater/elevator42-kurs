@@ -1,0 +1,569 @@
+<title>BEAK App Mockups</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+:root{
+  --paper:#EDEBE6; --ink:#121212; --muted:#5E5B55; --line:#CFCBC2; --card:#F7F6F3;
+  --beak:#F26A13; --chip:#E0DDD6;
+  /* phone (brand-fixed, dark app UI) */
+  --p-bg:#0C0C0D; --p-sf:#17171A; --p-sf2:#222226; --p-tx:#F3F1EC; --p-mu:#8F8C86; --p-ln:#2C2C31;
+  --up:#3DDC84; --down:#FF4D4D; --warn:#FFB020; --hedge:#4DA3FF;
+  --disp:"Anton","Impact","Arial Narrow",sans-serif;
+  --body:"Archivo","Helvetica Neue",Arial,sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --paper:#101011; --ink:#EDEBE6; --muted:#9A968F; --line:#2B2B2E; --card:#18181A; --chip:#232326; color-scheme:dark;}}
+:root[data-theme="dark"]{--paper:#101011; --ink:#EDEBE6; --muted:#9A968F; --line:#2B2B2E; --card:#18181A; --chip:#232326; color-scheme:dark;}
+
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.5;padding:0 20px}
+.wrap{max-width:1320px;margin:0 auto;padding-block:40px 80px}
+header.top{display:grid;grid-template-columns:1fr auto;gap:24px;align-items:end;border-bottom:2px solid var(--ink);padding-bottom:20px}
+h1{font-family:var(--disp);font-weight:400;font-size:clamp(44px,8vw,96px);line-height:.92;margin:0;letter-spacing:.005em;text-transform:uppercase;text-wrap:balance}
+h1 em{font-style:normal;color:var(--beak)}
+.lede{max-width:62ch;color:var(--muted);margin:14px 0 0}
+.meta{font-family:var(--mono);font-size:12px;color:var(--muted);text-align:right;line-height:1.7}
+@media (max-width:700px){header.top{grid-template-columns:1fr}.meta{text-align:left}}
+
+nav.jump{display:flex;flex-wrap:wrap;gap:8px;margin:20px 0 8px;position:sticky;top:env(safe-area-inset-top,0px);background:var(--paper);padding-block:10px;z-index:5}
+nav.jump a{font-family:var(--mono);font-size:12px;color:var(--ink);text-decoration:none;border:1px solid var(--line);padding:5px 10px;border-radius:999px}
+nav.jump a:hover,nav.jump a:focus-visible{border-color:var(--beak);color:var(--beak);outline:none}
+
+section.phase{padding-top:44px}
+.phase-head{display:grid;grid-template-columns:auto 1fr;gap:6px 18px;align-items:baseline;margin-bottom:22px}
+.phase-head .n{font-family:var(--mono);font-size:12px;color:var(--beak);letter-spacing:.08em}
+.phase-head h2{font-family:var(--disp);font-weight:400;font-size:36px;text-transform:uppercase;margin:0;line-height:1}
+.phase-head p{grid-column:2;margin:0;color:var(--muted);max-width:70ch}
+.row{display:flex;flex-wrap:wrap;gap:28px}
+
+figure.shot{margin:0;display:flex;flex-direction:column;gap:12px;width:280px;max-width:100%}
+figcaption{display:grid;gap:2px}
+figcaption b{font-family:var(--mono);font-size:12px;color:var(--beak);font-weight:600}
+figcaption span{font-weight:600}
+figcaption small{color:var(--muted);font-size:13px;line-height:1.45}
+
+/* ---------- phone ---------- */
+.phone{width:280px;max-width:100%;height:590px;border-radius:40px;background:#050505;padding:9px;box-shadow:0 1px 0 var(--line),0 18px 40px -22px rgba(0,0,0,.45)}
+.scr{height:100%;border-radius:32px;background:var(--p-bg);color:var(--p-tx);overflow:hidden;position:relative;display:flex;flex-direction:column;font-size:12px;line-height:1.4}
+.sb{display:flex;justify-content:space-between;padding:10px 20px 4px;font-family:var(--mono);font-size:10px;color:var(--p-tx)}
+.sb::after{content:"";position:absolute;left:50%;top:8px;width:74px;height:20px;margin-left:-37px;background:#000;border-radius:12px}
+.body{flex:1;overflow:hidden;padding:8px 14px 0;display:flex;flex-direction:column;gap:10px}
+.tabs{display:grid;grid-template-columns:repeat(5,1fr);border-top:1px solid var(--p-ln);padding:8px 4px 16px;background:var(--p-bg)}
+.tabs i{font-style:normal;text-align:center;font-size:9px;color:var(--p-mu);display:grid;gap:3px;justify-items:center}
+.tabs i::before{content:"";width:16px;height:16px;border-radius:5px;border:1.5px solid currentColor}
+.tabs i.on{color:var(--beak)}
+.tabs i.on::before{background:var(--beak);border-color:var(--beak)}
+.ttl{font-family:var(--disp);font-size:26px;line-height:1;text-transform:uppercase;letter-spacing:.01em}
+.ey{font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--p-mu)}
+.card{background:var(--p-sf);border:1px solid var(--p-ln);border-radius:14px;padding:11px}
+.card.hot{border-color:var(--down);background:linear-gradient(180deg,rgba(255,77,77,.14),var(--p-sf) 70%)}
+.mu{color:var(--p-mu)}
+.num{font-family:var(--mono);font-variant-numeric:tabular-nums}
+.btn{display:block;text-align:center;background:var(--beak);color:#111;font-weight:700;border-radius:12px;padding:11px;font-size:12.5px}
+.btn.ghost{background:transparent;color:var(--p-tx);border:1px solid var(--p-ln)}
+.btn.dang{background:transparent;color:var(--down);border:1px solid var(--down)}
+.pill{display:inline-block;font-family:var(--mono);font-size:9px;font-weight:600;padding:2px 7px;border-radius:999px;letter-spacing:.04em}
+.buy{background:rgba(61,220,132,.16);color:var(--up)}
+.swap{background:rgba(255,176,32,.16);color:var(--warn)}
+.hdg{background:rgba(77,163,255,.16);color:var(--hedge)}
+.cls{background:var(--p-sf2);color:var(--p-mu)}
+.hd{display:flex;justify-content:space-between;align-items:center}
+.list{display:grid;gap:8px}
+.kv{display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid var(--p-ln)}
+.kv:last-child{border-bottom:0}
+.bar{height:6px;border-radius:6px;background:var(--p-sf2);overflow:hidden}
+.bar>i{display:block;height:100%;background:var(--beak)}
+.up{color:var(--up)} .down{color:var(--down)}
+svg.spark{display:block;width:100%;height:34px}
+.field{border:1px solid var(--p-ln);border-radius:10px;padding:9px 10px;color:var(--p-mu);background:var(--p-sf)}
+.chk{display:flex;gap:8px;align-items:flex-start;color:var(--p-mu);font-size:10.5px}
+.chk::before{content:"";flex:none;width:12px;height:12px;border-radius:3px;background:var(--beak);margin-top:1px}
+.avatar{width:26px;height:26px;border-radius:50%;background:var(--p-sf2);flex:none;display:grid;place-items:center;font-size:10px;font-weight:700}
+.back{font-size:11px;color:var(--p-mu)}
+
+/* penguin logo */
+.peng{position:relative;width:var(--s,54px);height:calc(var(--s,54px)*1.1);background:#000;border-radius:48% 48% 40% 40%;border:2px solid #2a2a2a}
+.peng::before,.peng::after{content:"";position:absolute;top:28%;width:22%;height:20%;background:#fff;border-radius:50%}
+.peng::before{left:20%}.peng::after{right:20%}
+.peng b{position:absolute;left:50%;top:48%;transform:translateX(-50%);border-left:calc(var(--s,54px)*.13) solid transparent;border-right:calc(var(--s,54px)*.13) solid transparent;border-top:calc(var(--s,54px)*.18) solid var(--beak)}
+
+/* academy stairs */
+.stair{display:grid;grid-template-columns:36px 1fr auto;gap:10px;align-items:center}
+.lock{width:36px;height:36px;border-radius:10px;display:grid;place-items:center;background:var(--p-sf2);font-family:var(--mono);font-size:14px}
+.lock.open{background:var(--beak);color:#111}
+
+/* QR */
+.qr{display:grid;grid-template-columns:repeat(21,1fr);gap:0;width:150px;height:150px;background:#fff;padding:8px;border-radius:10px;margin:0 auto}
+.qr i{background:#fff}.qr i.k{background:#000}
+
+/* desktop frame for CMS */
+figure.shot.wide{width:min(760px,100%)}
+.desk{border-radius:14px;overflow:hidden;border:1px solid var(--line);background:#050505;padding:8px}
+.desk .scr{border-radius:8px;height:auto;min-height:440px;flex-direction:row}
+.side{width:150px;flex:none;background:var(--p-sf);border-right:1px solid var(--p-ln);padding:14px 12px;display:grid;align-content:start;gap:6px}
+.side div{padding:6px 8px;border-radius:8px;color:var(--p-mu)}
+.side div.on{background:var(--p-sf2);color:var(--p-tx)}
+.main{flex:1;padding:18px;display:grid;gap:12px;align-content:start;min-width:0}
+.tbl{color:inherit;font:inherit;width:100%;border-collapse:collapse;font-size:11.5px}
+.tbl th{text-align:left;font-family:var(--mono);font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--p-mu);font-weight:400;padding:6px 8px;border-bottom:1px solid var(--p-ln)}
+.tbl td{padding:8px;border-bottom:1px solid var(--p-ln)}
+.tblwrap{overflow-x:auto}
+@media (max-width:640px){.side{display:none}}
+
+footer.note{margin-top:60px;border-top:1px solid var(--line);padding-top:18px;color:var(--muted);font-size:13px;max-width:80ch}
+@media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
+</style>
+
+<div class="wrap">
+<header class="top">
+  <div>
+    <h1>BEAK App<br><em>Mockups</em></h1>
+    <p class="lede">Alle Funktionen der BEAK App als Low-Fidelity-Screens, sortiert entlang der Customer Journey. Jede Screen-ID (S-…) ist im Pflichtenheft den Anforderungen (PH-…) zugeordnet. Alle Zahlen, Kurse und Namen sind Beispieldaten.</p>
+  </div>
+  <div class="meta">Version 0.1 · 25.09.2026<br>21 Screens · 7 Phasen<br>Quelle: Pitch-Deck „Beak 1 Albert App“</div>
+</header>
+
+<nav class="jump" aria-label="Phasen">
+  <a href="#onboarding">Onboarding</a><a href="#pulse">Daily Pulse</a><a href="#reports">Reports</a><a href="#signale">Signale</a><a href="#academy">Academy &amp; Community</a><a href="#partner">Partner &amp; Events</a><a href="#konto">Konto</a><a href="#cms">CMS</a>
+</nav>
+
+<!-- ================= 1 ENTDECKEN / ONBOARDING ================= -->
+<section class="phase" id="onboarding">
+  <div class="phase-head"><span class="n">EINSTIEG</span><h2>Onboarding &amp; Paywall</h2><p>Vom ersten Öffnen bis zum Abo. Ziel: in unter 3 Minuten im ersten Daily Pulse.</p></div>
+  <div class="row">
+
+    <figure class="shot">
+      <div class="phone"><div class="scr"><div class="sb"><span>9:41</span><span>5G ▮▮▮</span></div>
+        <div class="body" style="justify-content:center;align-items:center;text-align:center;gap:18px;padding-bottom:20px">
+          <div class="peng" style="--s:70px"><b></b></div>
+          <div class="ttl" style="font-size:40px">BEAK</div>
+          <div class="ttl" style="font-size:22px;color:var(--beak)">Less noise.<br>Better picks.</div>
+          <p class="mu" style="max-width:26ch;margin:0">Krypto und Makro, einfach erklärt. Jeden Morgen in 3 Minuten.</p>
+          <div style="display:flex;gap:5px"><i style="width:18px;height:4px;border-radius:4px;background:var(--beak)"></i><i style="width:6px;height:4px;border-radius:4px;background:var(--p-sf2)"></i><i style="width:6px;height:4px;border-radius:4px;background:var(--p-sf2)"></i></div>
+          <div style="width:100%;display:grid;gap:8px;margin-top:auto"><span class="btn">Los geht's</span><span class="btn ghost">Ich habe schon ein Konto</span></div>
+        </div></div></div>
+      <figcaption><b>S-01 · PH-01.1</b><span>Splash &amp; Intro</span><small>Drei wischbare Intro-Karten: Problem (Herde vs. Eule), BEAK-Filter, 5-Zylinder-Engine.</small></figcaption>
+    </figure>
+
+    <figure class="shot">
+      <div class="phone"><div class="scr"><div class="sb"><span>9:41</span><span>5G ▮▮▮</span></div>
+        <div class="body">
+          <span class="back">‹ Zurück</span>
+          <div class="ttl">Konto<br>erstellen</div>
+          <span class="btn ghost"> Mit Apple fortfahren</span>
+          <span class="btn ghost">G  Mit Google fortfahren</span>
+          <div class="ey" style="text-align:center">oder</div>
+          <div class="field">max@beispiel.de</div>
+          <div class="field">••••••••••</div>
+          <div class="field" style="display:flex;justify-content:space-between"><span>Empfehlungscode</span><span class="num" style="color:var(--beak)">GERD-7K2</span></div>
+          <div class="chk">Ich akzeptiere AGB und Datenschutz.</div>
+          <div class="chk">Ich habe verstanden: BEAK ist keine Anlageberatung.</div>
+          <span class="btn" style="margin-top:auto;margin-bottom:18px">Weiter</span>
+        </div></div></div>
+      <figcaption><b>S-02 · PH-01.2, 01.5, 01.6</b><span>Registrierung</span><small>Code aus dem Partner-Link ist vorausgefüllt. Danach 3 Profiling-Fragen und Wahl der Pulse-Uhrzeit.</small></figcaption>
+    </figure>
+
+    <figure class="shot">
+      <div class="phone"><div class="scr"><div class="sb"><span>9:41</span><span>5G ▮▮▮</span></div>
+        <div class="body">
+          <div class="ey">Mitgliedschaft</div>
+          <div class="ttl">Sichere dir<br>deinen Platz</div>
+          <div class="card" style="border-color:var(--beak)">
+            <div class="hd"><b>Die ersten 100</b><span class="pill buy">OFFEN</span></div>
+            <div style="display:flex;align-items:baseline;gap:6px;margin:6px 0"><span class="ttl" style="font-size:30px;white-space:nowrap">100 €</span><span class="mu">/ Monat · Preis garantiert</span></div>
+            <div class="bar"><i style="width:77%"></i></div>
+            <div class="hd mu" style="margin-top:5px"><span class="num">77 von 100 vergeben</span><span class="num">23 frei</span></div>
+          </div>
+          <div class="card" style="opacity:.55"><div class="hd"><b>Die nächsten 200</b><span class="num">200 € / Monat</span></div></div>
+          <div class="card" style="opacity:.4"><div class="hd"><b>Regulär</b><span class="num">500 € / Monat</span></div></div>
+          <div class="list mu" style="font-size:11px"><span>✓ Daily Pulse · Reports · Signale</span><span>✓ Academy 3 Stufen · Community</span><span>✓ Jederzeit kündbar, 2 Klicks</span></div>
+          <span class="btn" style="margin-top:auto">Für 100 € / Monat starten</span>
+          <span class="mu" style="text-align:center;font-size:10px;margin-bottom:14px">Preis bleibt, solange dein Abo läuft.</span>
+        </div></div></div>
+      <figcaption><b>S-03 · PH-01.4</b><span>Paywall mit Preisstufen</span><small>Restplätze kommen live aus der Datenbank. Keine künstlichen Countdowns (Lastenheft R5).</small></figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ================= PULSE ================= -->
+<section class="phase" id="pulse">
+  <div class="phase-head"><span class="n">ZYLINDER 1</span><h2>The Daily Pulse</h2><p>Der erste Screen am Morgen. 3 bis 10 Themen der Nacht, Crash-Warnungen, Live-Charts.</p></div>
+  <div class="row">
+
+    <figure class="shot">
+      <div class="phone"><div class="scr"><div class="sb"><span>7:02</span><span>5G ▮▮▮</span></div>
+        <div class="body">
+          <div class="hd"><div><div class="ey">Fr, 25. Sep · 3 min</div><div class="ttl">Daily Pulse</div></div><span class="pill" style="background:rgba(255,77,77,.16);color:var(--down)">RISK-OFF</span></div>
+          <div class="bar"><i style="width:40%"></i></div>
+          <div class="card hot"><div class="hd"><span class="pill" style="background:var(--down);color:#fff">CRASH-WARNUNG</span><span class="mu num">06:48</span></div><b style="display:block;margin-top:6px">Anleihen-Stress in Japan</b><span class="mu">10J-Rendite springt auf 1,9 %. Carry-Trades werden aufgelöst.</span></div>
+          <div class="card"><div class="hd"><b>Bitcoin</b><span class="num down">−3,4 %</span></div>
+            <svg class="spark" viewBox="0 0 100 30" preserveAspectRatio="none"><polyline fill="none" stroke="#FF4D4D" stroke-width="1.6" points="0,8 10,9 20,7 30,11 40,10 50,14 60,13 70,18 80,20 90,22 100,24"/></svg>
+            <span class="mu">ETF-Abflüsse 412 Mio. $. Quelle: Glassnode</span></div>
+          <div class="card"><div class="hd"><b>Gold</b><span class="num up">+1,2 %</span></div>
+            <svg class="spark" viewBox="0 0 100 30" preserveAspectRatio="none"><polyline fill="none" stroke="#3DDC84" stroke-width="1.6" points="0,22 10,21 20,22 30,19 40,18 50,17 60,15 70,14 80,12 90,10 100,9"/></svg>
+            <span class="mu">Sicherer Hafen gefragt. Quelle: FT</span></div>
+        </div>
+        <div class="tabs"><i class="on">Pulse</i><i>Reports</i><i>Signale</i><i>Academy</i><i>Community</i></div></div></div>
+      <figcaption><b>S-04 · PH-02.1–02.5</b><span>Daily Pulse</span><small>Markt-Ampel, Lesefortschritt, Themenkarten mit 24-h-Sparkline. Alles gelesen: +10 Punkte.</small></figcaption>
+    </figure>
+
+    <figure class="shot">
+      <div class="phone"><div class="scr"><div class="sb"><span>7:03</span><span>5G ▮▮▮</span></div>
+        <div class="body">
+          <span class="back">‹ Pulse</span>
+          <span class="pill" style="background:var(--down);color:#fff;justify-self:start;width:max-content">CRASH-WARNUNG</span>
+          <div class="ttl" style="font-size:24px">Anleihen-Stress in Japan</div>
+          <div class="card"><svg viewBox="0 0 100 50" style="width:100%;height:90px" preserveAspectRatio="none"><polyline fill="none" stroke="#2C2C31" stroke-width=".4" points="0,12 100,12"/><polyline fill="none" stroke="#2C2C31" stroke-width=".4" points="0,25 100,25"/><polyline fill="none" stroke="#2C2C31" stroke-width=".4" points="0,38 100,38"/><polyline fill="none" stroke="#FF4D4D" stroke-width="1.4" points="0,40 12,39 24,38 36,37 48,36 60,34 72,30 80,24 88,16 94,10 100,6"/></svg><div class="hd mu num"><span>JGB 10J · 30 Tage</span><span class="down">1,90 %</span></div></div>
+          <div><b>Was passiert ist</b><p class="mu" style="margin:3px 0 0">Die Bank of Japan signalisiert Zinsschritte. Investoren, die billig in Yen geliehen haben, verkaufen Risiko-Assets.</p></div>
+          <div><b>Was das für dich heißt</b><p class="mu" style="margin:3px 0 0">Hohe Schwankung bei Krypto möglich. Kein Panikverkauf. Offene Hedge-Signale prüfen.</p></div>
+          <span class="btn" style="margin-top:auto;margin-bottom:16px">Passende Signale ansehen</span>
+        </div></div></div>
+      <figcaption><b>S-05 · PH-02.3</b><span>Crash-Warnung (Detail)</span><small>Eigener Push-Kanal mit hoher Priorität. Immer mit „Was das für dich heißt“ in Alltagssprache.</small></figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ================= REPORTS ================= -->
+<section class="phase" id="reports">
+  <div class="phase-head"><span class="n">ZYLINDER 2</span><h2>Special &amp; Market Reports</h2><p>Science meets Netflix: Analysen als Serien und Scroll-Storys statt PDF.</p></div>
+  <div class="row">
+
+    <figure class="shot">
+      <div class="phone"><div class="scr"><div class="sb"><span>21:00</span><span>WLAN</span></div>
+        <div class="body">
+          <div class="ttl">Reports</div>
+          <div class="card" style="height:150px;display:flex;flex-direction:column;justify-content:flex-end;background:linear-gradient(160deg,#3a2515 0%,#130d09 60%);border:0">
+            <span class="ey" style="color:var(--beak)">Neue Folge · Staffel 1</span><b style="font-size:16px">Der Jenga-Turm</b><span class="mu">Warum 38 % des S&amp;P 500 an wenigen Kabeln hängen · 9 min</span></div>
+          <div class="hd"><b>Weiterschauen</b><span class="mu">Alle</span></div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+            <div class="card" style="padding:0;overflow:hidden"><div style="height:62px;background:linear-gradient(135deg,#2b1a3d,#120b1b)"></div><div style="padding:7px"><b style="font-size:11px">Das Öl-Fass</b><div class="bar" style="margin-top:5px"><i style="width:60%"></i></div></div></div>
+            <div class="card" style="padding:0;overflow:hidden"><div style="height:62px;background:linear-gradient(135deg,#123040,#081419)"></div><div style="padding:7px"><b style="font-size:11px">Der Riss im Würfel</b><div class="bar" style="margin-top:5px"><i style="width:25%"></i></div></div></div>
+          </div>
+          <div class="hd"><b>Staffel 2: Die Physik der Panik</b></div>
+          <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px"><div style="height:54px;border-radius:8px;background:var(--p-sf2)"></div><div style="height:54px;border-radius:8px;background:var(--p-sf2)"></div><div style="height:54px;border-radius:8px;background:var(--p-sf2)"></div></div>
+        </div>
+        <div class="tabs"><i>Pulse</i><i class="on">Reports</i><i>Signale</i><i>Academy</i><i>Community</i></div></div></div>
+      <figcaption><b>S-06 · PH-03.1, 03.3</b><span>Report-Bibliothek</span><small>Streaming-Layout mit Hero, „Weiterschauen“ und Staffeln.</small></figcaption>
+    </figure>
+
+    <figure class="shot">
+      <div class="phone"><div class="scr"><div class="sb"><span>21:04</span><span>WLAN</span></div>
+        <div class="body">
+          <div class="hd"><span class="back">‹ Bibliothek</span><span class="mu">▶ Audio</span></div>
+          <div class="bar"><i style="width:35%"></i></div>
+          <div style="height:170px;border-radius:14px;background:repeating-linear-gradient(0deg,#6b6158 0 12px,#4d453e 12px 14px);position:relative;overflow:hidden">
+            <div style="position:absolute;inset:auto 0 0 0;height:60px;background:linear-gradient(0deg,rgba(242,106,19,.75),transparent)"></div>
+            <span class="pill" style="position:absolute;left:10px;top:10px;background:#000;color:var(--p-tx)">KAPITEL 2 / 5</span></div>
+          <div class="ttl" style="font-size:22px">Wenn ein Kabel bricht</div>
+          <p class="mu" style="margin:0">Sieben Tech-Konzerne machen 38 % des S&amp;P 500 aus. Fällt einer, wackelt der ganze Turm. Wer einen „breiten“ ETF hält, ist konzentrierter, als er denkt.</p>
+          <div class="card" style="border-color:var(--beak)"><div class="ey" style="color:var(--beak)">Key Takeaway</div><b>Dein ETF ist ein Jenga-Turm. Prüfe dein Klumpenrisiko.</b></div>
+          <div class="hd mu" style="margin-bottom:16px"><span>💬 48 Kommentare</span><span>Weiter ›</span></div>
+        </div></div></div>
+      <figcaption><b>S-07 · PH-03.2, 03.4, 03.5</b><span>Report-Story</span><small>Vertikaler Scroll aus Bild-, Text-, Chart- und Takeaway-Blöcken. Kommentare führen in die Community.</small></figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ================= SIGNALE ================= -->
+<section class="phase" id="signale">
+  <div class="phase-head"><span class="n">ZYLINDER 3</span><h2>Actionable Signals</h2><p>Kauf, Swap, Hedging. Jedes Signal mit einem Satz Begründung und der Antwort auf „Was, wenn es fällt?“.</p></div>
+  <div class="row">
+
+    <figure class="shot">
+      <div class="phone"><div class="scr"><div class="sb"><span>11:41</span><span>5G ▮▮▮</span></div>
+        <div class="body">
+          <div class="hd"><div class="ttl">Signale</div><span class="mu">Historie ›</span></div>
+          <div style="display:flex;gap:5px;flex-wrap:wrap"><span class="pill" style="background:var(--p-tx);color:#111">Alle</span><span class="pill buy">Kauf</span><span class="pill swap">Swap</span><span class="pill hdg">Hedge</span><span class="pill cls">Geschlossen</span></div>
+          <div class="card" style="border-color:var(--hedge)"><div class="hd"><span class="pill hdg">HEDGE · NEU</span><span class="mu num">11:40</span></div><b style="display:block;margin:5px 0 2px;font-size:14px">BTC absichern</b><span class="mu">Put-Absicherung bei 58.000 $. Schützt vor Yen-Carry-Abverkauf.</span><div class="hd num" style="margin-top:7px"><span class="mu">Horizont 3 Wo.</span><span>Offen</span></div></div>
+          <div class="card"><div class="hd"><span class="pill buy">KAUF</span><span class="mu num">22.09.</span></div><b style="display:block;margin:5px 0 2px;font-size:14px">ETH · Zone 2.250–2.350 $</b><span class="mu">Staking-Zuflüsse steigen, Angebot an Börsen auf 5-J.-Tief.</span><div class="hd num" style="margin-top:7px"><span class="mu">Ziel 2.900 $</span><span class="up">+4,1 %</span></div></div>
+          <div class="card"><div class="hd"><span class="pill swap">SWAP</span><span class="mu num">18.09.</span></div><b style="display:block;margin:5px 0 2px;font-size:14px">SOL → Gold-Token</b><span class="mu">Gewinne sichern, in Stabilität umschichten.</span></div>
+        </div>
+        <div class="tabs"><i>Pulse</i><i>Reports</i><i class="on">Signale</i><i>Academy</i><i>Community</i></div></div></div>
+      <figcaption><b>S-08 · PH-04.1, 04.2</b><span>Signal-Feed</span><small>Farbcodiert nach Typ. Status und Performance live.</small></figcaption>
+    </figure>
+
+    <figure class="shot">
+      <div class="phone"><div class="scr"><div class="sb"><span>12:15</span><span>5G ▮▮▮</span></div>
+        <div class="body">
+          <span class="back">‹ Signale</span>
+          <div class="hd"><span class="pill hdg">HEDGE</span><span class="mu num">#0147</span></div>
+          <div class="ttl" style="font-size:24px">BTC absichern</div>
+          <div class="card" style="padding:8px"><svg viewBox="0 0 100 50" style="width:100%;height:64px" preserveAspectRatio="none"><rect x="0" y="30" width="100" height="10" fill="rgba(77,163,255,.18)"/><polyline fill="none" stroke="#4DA3FF" stroke-width=".5" stroke-dasharray="2 1.5" points="0,30 100,30"/><polyline fill="none" stroke="#F3F1EC" stroke-width="1.3" points="0,14 10,12 20,15 30,11 40,13 50,17 60,16 70,20 80,22 90,21 100,24"/></svg><div class="hd mu num"><span>Absicherung ab 58.000 $</span><span>jetzt 61.240 $</span></div></div>
+          <div class="kv"><span class="mu">Instrument</span><span>Put, Laufzeit 3 Wochen</span></div>
+          <div class="kv"><span class="mu">Absicherung ab</span><span class="num">58.000 $</span></div>
+          <div class="card"><b>Warum?</b><p class="mu" style="margin:3px 0 0">Yen-Zinsen steigen, gehebelte Positionen werden aufgelöst. Das trifft Krypto zuerst.</p></div>
+          <div class="card" style="border-color:var(--hedge)"><b>Was, wenn es fällt?</b><p class="mu" style="margin:3px 0 0">Die Absicherung gewinnt, wenn BTC fällt. Du musst nicht verkaufen und wirst nicht ausgestoppt.</p></div>
+          <span class="mu" style="font-size:9.5px;margin-bottom:14px">Allgemeine Marktanalyse, keine Anlageberatung. Verluste möglich.</span>
+        </div></div></div>
+      <figcaption><b>S-09 · PH-04.3, 04.6</b><span>Signal-Detail</span><small>Chart mit Absicherungszone, „Warum?“ in max. 280 Zeichen, Hedge-Erklärung, Risikohinweis.</small></figcaption>
+    </figure>
+
+    <figure class="shot">
+      <div class="phone"><div class="scr"><div class="sb"><span>12:20</span><span>5G ▮▮▮</span></div>
+        <div class="body">
+          <span class="back">‹ Signale</span>
+          <div class="ttl">Signal-Historie</div>
+          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:6px">
+            <div class="card" style="padding:8px"><div class="ey">Signale</div><b class="num" style="font-size:18px">146</b></div>
+            <div class="card" style="padding:8px"><div class="ey">Treffer</div><b class="num" style="font-size:18px">64 %</b></div>
+            <div class="card" style="padding:8px"><div class="ey">Ø Ergebnis</div><b class="num up" style="font-size:16px;white-space:nowrap">+6,8 %</b></div>
+          </div>
+          <div class="card" style="padding:4px 11px">
+            <div class="kv"><span><span class="pill cls">SWAP</span> SOL → Gold</span><span class="num up">+11,2 %</span></div>
+            <div class="kv"><span><span class="pill cls">KAUF</span> LINK</span><span class="num down">−7,5 %</span></div>
+            <div class="kv"><span><span class="pill cls">HEDGE</span> BTC</span><span class="num up">+18,0 %</span></div>
+            <div class="kv"><span><span class="pill cls">KAUF</span> ETH</span><span class="num up">+9,3 %</span></div>
+            <div class="kv"><span><span class="pill cls">KAUF</span> ARB</span><span class="num down">−12,1 %</span></div>
+          </div>
+          <span class="mu" style="font-size:10px">Alle Signale seit Start. Nichts wird nachträglich gelöscht. Beispieldaten.</span>
+        </div></div></div>
+      <figcaption><b>S-10 · PH-04.5</b><span>Signal-Historie</span><small>Transparenz schafft Vertrauen, auch bei Verlust-Signalen. Audit-Log im Backend.</small></figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ================= ACADEMY & COMMUNITY ================= -->
+<section class="phase" id="academy">
+  <div class="phase-head"><span class="n">ZYLINDER 4 + 5</span><h2>Academy &amp; Community</h2><p>From Zero to Hero in drei Stufen. Punkte, Ränge und Streaks machen daraus eine Gewohnheit. 2 % der Einnahmen gehen per Abstimmung an Charity.</p></div>
+  <div class="row">
+
+    <figure class="shot">
+      <div class="phone"><div class="scr"><div class="sb"><span>19:10</span><span>WLAN</span></div>
+        <div class="body">
+          <div class="hd"><div class="ttl">Academy</div><b class="num" style="color:var(--beak)">38 %</b></div>
+                    <div class="card stair"><div class="lock open">✓</div><div><b>Stufe 1 · Krypto-Basics</b><div class="mu">Sicherheit &amp; Setup · 12 Lektionen</div></div><span class="pill buy">FERTIG</span></div>
+          <div class="card stair" style="border-color:var(--beak)"><div class="lock open">2</div><div><b>Stufe 2 · Marktpsychologie</b><div class="mu">Die Physik der Panik · 7/16</div></div><span class="num" style="color:var(--beak)">44 %</span></div>
+          <div class="card stair" style="opacity:.55"><div class="lock">🔒</div><div><b>Stufe 3 · Makro Mastery</b><div class="mu">Unabhängigkeit · 20 Lektionen</div></div><span></span></div>
+          <div class="card"><div class="ey">Nächste Lektion</div><b style="display:block;margin:4px 0">2.8 · Warum die Herde immer zu spät kommt</b><span class="btn" style="padding:8px">▶ Weiter · 6 min</span></div>
+        </div>
+        <div class="tabs"><i>Pulse</i><i>Reports</i><i>Signale</i><i class="on">Academy</i><i>Community</i></div></div></div>
+      <figcaption><b>S-11 · PH-06.1, 06.3</b><span>Academy-Übersicht</span><small>Schloss-Treppe wie im Deck. Stufe 3 öffnet nach bestandenem Quiz von Stufe 2.</small></figcaption>
+    </figure>
+
+    <figure class="shot">
+      <div class="phone"><div class="scr"><div class="sb"><span>19:18</span><span>WLAN</span></div>
+        <div class="body">
+          <div class="hd"><span class="back">✕</span><span class="mu num">Frage 3 / 5</span></div>
+          <div class="bar"><i style="width:60%"></i></div>
+          <div class="ey">Abschlussquiz Stufe 2</div>
+          <b style="font-size:15px;line-height:1.35">BTC fällt 15 % in zwei Tagen. Was macht „Smart Money“ laut Lektion 2.4?</b>
+          <div class="list">
+            <div class="card">Sofort verkaufen, bevor es schlimmer wird</div>
+            <div class="card" style="border-color:var(--up);background:rgba(61,220,132,.08)">Fakten prüfen, Absicherung checken, abwarten ✓</div>
+            <div class="card">Nachkaufen mit Hebel</div>
+            <div class="card">Stop-Loss enger setzen</div>
+          </div>
+          <div class="card" style="border-color:var(--up)"><b class="up">Richtig! +10 Punkte</b><p class="mu" style="margin:3px 0 0">Die Eule handelt nicht im Chaos. Sie wartet auf das perfekte Timing.</p></div>
+          <span class="btn" style="margin-top:auto;margin-bottom:16px">Nächste Frage</span>
+        </div></div></div>
+      <figcaption><b>S-12 · PH-06.2, 06.4</b><span>Lektion &amp; Quiz</span><small>Ab 80 % richtig wird die nächste Stufe frei. Zertifikat als PDF je Stufe.</small></figcaption>
+    </figure>
+
+    <figure class="shot">
+      <div class="phone"><div class="scr"><div class="sb"><span>7:05</span><span>5G ▮▮▮</span></div>
+        <div class="body">
+          <span class="back">‹ Profil</span>
+          <div style="display:grid;justify-items:center;gap:6px;text-align:center">
+            <div style="width:84px;height:96px;background:linear-gradient(160deg,#B87333,#5a3515);clip-path:polygon(50% 0,100% 15%,100% 60%,50% 100%,0 60%,0 15%);display:grid;place-items:center;font-family:var(--disp);font-size:13px;color:#fff">STRATEGE</div>
+            <b class="num" style="font-size:22px">3.420 Punkte</b>
+            <span class="mu">Noch 2.580 bis <b style="color:var(--p-tx)">Experte</b></span>
+            <div class="bar" style="width:100%"><i style="width:36%"></i></div>
+          </div>
+          <div class="card"><div class="hd"><b>🔥 Streak</b><b class="num" style="color:var(--beak)">23 Tage</b></div>
+            <div style="display:grid;grid-template-columns:repeat(7,1fr);gap:4px;margin-top:8px"><i style="height:18px;border-radius:4px;background:var(--beak)"></i><i style="height:18px;border-radius:4px;background:var(--beak)"></i><i style="height:18px;border-radius:4px;background:var(--beak)"></i><i style="height:18px;border-radius:4px;background:var(--beak)"></i><i style="height:18px;border-radius:4px;background:var(--beak)"></i><i style="height:18px;border-radius:4px;background:var(--beak)"></i><i style="height:18px;border-radius:4px;background:var(--p-sf2);border:1px dashed var(--beak)"></i></div></div>
+          <div class="card" style="padding:4px 11px">
+            <div class="kv"><span class="mu">Täglich einloggen</span><span class="num">+5</span></div>
+            <div class="kv"><span class="mu">Pulse gelesen</span><span class="num">+10</span></div>
+            <div class="kv"><span class="mu">Lektion abgeschlossen</span><span class="num">+20</span></div>
+            <div class="kv"><span class="mu">Quiz bestanden</span><span class="num">+50</span></div>
+          </div>
+          <div class="card"><span class="ey">Freischaltung ab Experte</span><b style="display:block">Makro-Modul „Zentralbank-Bilanzen“ + Experten-Kanal</b></div>
+        </div></div></div>
+      <figcaption><b>S-13 · PH-05.1–05.4</b><span>Rang, Punkte &amp; Streak</span><small>Engagement = Status. Ränge: Küken, Beobachter, Stratege, Experte, Legende.</small></figcaption>
+    </figure>
+
+    <figure class="shot">
+      <div class="phone"><div class="scr"><div class="sb"><span>21:20</span><span>WLAN</span></div>
+        <div class="body">
+          <div class="ttl">Community</div>
+          <div style="display:flex;gap:5px;flex-wrap:wrap"><span class="pill" style="background:var(--p-tx);color:#111"># allgemein</span><span class="pill cls"># signale</span><span class="pill cls"># makro</span><span class="pill cls"># academy</span><span class="pill cls">🔒 experten</span></div>
+          <div class="card"><div style="display:flex;gap:8px"><div class="avatar">MI</div><div><b>Mira K.</b> <span class="pill" style="background:rgba(184,115,51,.25);color:#E0A070">STRATEGE</span><p style="margin:4px 0" class="mu">Das BTC-Hedge heute kam genau richtig. Hab zum ersten Mal nicht panisch verkauft.</p><span class="mu num">♥ 34 · 💬 8 · vor 12 min</span></div></div></div>
+          <div class="card"><div style="display:flex;gap:8px"><div class="avatar">MX</div><div><b>Max R.</b> <span class="pill cls">BEOBACHTER</span><p style="margin:4px 0" class="mu">Frage zu Lektion 2.4: Ist ein Put nicht teuer, wenn die Volatilität schon hoch ist?</p><span class="mu num">♥ 12 · 💬 5 · vor 40 min</span></div></div></div>
+          <div class="card" style="border-color:var(--beak)"><div class="hd"><b>Charity-Voting Q4 läuft</b><span style="color:var(--beak)">Abstimmen ›</span></div></div>
+          <div class="field" style="margin-top:auto">Schreib etwas …</div>
+        </div>
+        <div class="tabs"><i>Pulse</i><i>Reports</i><i>Signale</i><i>Academy</i><i class="on">Community</i></div></div></div>
+      <figcaption><b>S-14 · PH-07.1–07.4</b><span>Community</span><small>Kanäle, Rangabzeichen, Moderation. Scam-Links werden automatisch gefiltert.</small></figcaption>
+    </figure>
+
+    <figure class="shot">
+      <div class="phone"><div class="scr"><div class="sb"><span>21:25</span><span>WLAN</span></div>
+        <div class="body">
+          <span class="back">‹ Community</span>
+          <div class="ey">Goodwill · Q4 2026</div>
+          <div class="ttl">Wohin gehen<br>die 2 %?</div>
+          <div class="card"><div class="hd"><span class="mu">Topf dieses Quartal</span><b class="num" style="font-size:18px">4.380 €</b></div><span class="mu">Abstimmung endet am 15.12. · 1 Stimme pro Mitglied</span></div>
+          <div class="card"><div class="hd"><b>Finanzbildung an Schulen</b><span class="num">46 %</span></div><div class="bar" style="margin-top:6px"><i style="width:46%"></i></div></div>
+          <div class="card" style="border-color:var(--beak)"><div class="hd"><b>Tafel Deutschland ✓</b><span class="num">31 %</span></div><div class="bar" style="margin-top:6px"><i style="width:31%"></i></div><span class="mu" style="font-size:10px">Deine Stimme</span></div>
+          <div class="card"><div class="hd"><b>Pinguin-Schutz Antarktis</b><span class="num">23 %</span></div><div class="bar" style="margin-top:6px"><i style="width:23%"></i></div></div>
+          <span class="mu" style="font-size:10px">Spendennachweis Q3 ansehen ›</span>
+        </div></div></div>
+      <figcaption><b>S-15 · PH-08.1, 08.2</b><span>Charity-Voting</span><small>Quartalsweise Abstimmung, Topf = 2 % Nettoumsatz, Nachweis nach Abschluss.</small></figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ================= PARTNER & EVENTS ================= -->
+<section class="phase" id="partner">
+  <div class="phase-head"><span class="n">WACHSTUM</span><h2>Partner &amp; Events</h2><p>Menschen verkaufen an Menschen. Provision nur auf echte Endkunden-Abos, nie auf das Anwerben von Partnern (Lastenheft R2).</p></div>
+  <div class="row">
+
+    <figure class="shot">
+      <div class="phone"><div class="scr"><div class="sb"><span>10:00</span><span>5G ▮▮▮</span></div>
+        <div class="body">
+          <span class="back">‹ Profil</span>
+          <div class="hd"><div class="ttl">Partner</div><span class="pill swap">MANAGER</span></div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px">
+            <div class="card" style="padding:9px"><div class="ey">Aktive Abos</div><b class="num" style="font-size:20px">38</b></div>
+            <div class="card" style="padding:9px"><div class="ey">Provision Sep.</div><b class="num" style="font-size:20px">1.140 €</b></div>
+            <div class="card" style="padding:9px"><div class="ey">Klicks 30 T.</div><b class="num" style="font-size:20px">612</b></div>
+            <div class="card" style="padding:9px"><div class="ey">Team-Overhead</div><b class="num" style="font-size:20px">265 €</b></div>
+          </div>
+          <div class="card"><div class="ey">Dein Link</div><div class="hd" style="margin-top:4px"><span class="num">beak.app/r/GERD-7K2</span><span style="color:var(--beak)">Kopieren</span></div></div>
+          <div class="card" style="padding:4px 11px">
+            <div class="kv"><span>Max R.</span><span class="pill buy">ABO AKTIV</span></div>
+            <div class="kv"><span>Lena S.</span><span class="pill swap">WIDERRUFSFRIST</span></div>
+            <div class="kv"><span>Tom B.</span><span class="pill cls">REGISTRIERT</span></div>
+          </div>
+          <span class="btn ghost" style="margin-bottom:14px">+ Event anlegen</span>
+        </div></div></div>
+      <figcaption><b>S-16 · PH-09.2–09.5</b><span>Partner-Dashboard</span><small>Provision wird erst nach der 14-tägigen Widerrufsfrist fällig. Partner sehen nur Vorname und Status.</small></figcaption>
+    </figure>
+
+    <figure class="shot">
+      <div class="phone"><div class="scr" style="background:#EDEBE6;color:#121212"><div class="sb" style="color:#121212"><span>18:30</span><span>LTE</span></div>
+        <div class="body">
+          <div class="hd"><div class="peng" style="--s:26px"><b></b></div><span style="font-family:var(--mono);font-size:10px;color:#5E5B55">beak.app/events · Einladung von Gerd M.</span></div>
+          <div class="ttl" style="font-size:30px">Warum dieser Bullrun anders ist</div>
+          <div style="display:grid;gap:4px;font-size:12px"><span>📅 Do, 16. Okt. 2026 · 19:00</span><span>📍 Kulturhaus, Leipzig</span><span style="color:#5E5B55">Eintritt frei · 42 von 80 Plätzen frei</span></div>
+          <div style="border-top:1px solid #CFCBC2;padding-top:8px;display:grid;gap:4px;font-size:11.5px"><b>Agenda</b><span>19:00 Die Physik der Panik (live)</span><span>19:45 Makro-Lage Q4</span><span>20:15 Fragen &amp; Austausch</span></div>
+          <div style="border:1px solid #CFCBC2;border-radius:10px;padding:9px;color:#5E5B55">Vorname Nachname</div>
+          <div style="border:1px solid #CFCBC2;border-radius:10px;padding:9px;color:#5E5B55">E-Mail</div>
+          <span class="btn" style="margin-top:auto;margin-bottom:16px">Kostenlos anmelden</span>
+        </div></div></div>
+      <figcaption><b>S-17 · PH-10.1, 10.2</b><span>Öffentliche Eventseite (Web)</span><small>Anmeldung ohne App-Konto. Teilnehmer werden dem einladenden Partner zugeordnet.</small></figcaption>
+    </figure>
+
+    <figure class="shot">
+      <div class="phone"><div class="scr"><div class="sb"><span>18:52</span><span>5G ▮▮▮</span></div>
+        <div class="body" style="gap:12px">
+          <span class="back">‹ Meine Events</span>
+          <div class="ttl" style="font-size:22px">Dein Ticket</div>
+          <div class="card" style="display:grid;gap:10px;text-align:center">
+            <div class="qr" id="qr" aria-label="Beispiel-QR-Code"></div>
+            <b>Warum dieser Bullrun anders ist</b>
+            <span class="mu">Do, 16. Okt. · 19:00 · Leipzig</span>
+            <span class="num mu">Ticket #EVT-0412-038</span>
+          </div>
+          <span class="btn ghost">Zu Apple Wallet hinzufügen</span>
+          <span class="mu" style="text-align:center;font-size:10.5px">Am Eingang scannt der Veranstalter diesen Code.</span>
+        </div></div></div>
+      <figcaption><b>S-18 · PH-10.3</b><span>Ticket &amp; Check-in</span><small>QR-Ticket in App und Wallet. Scanner-Ansicht für Partner-Manager vor Ort.</small></figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ================= KONTO ================= -->
+<section class="phase" id="konto">
+  <div class="phase-head"><span class="n">KONTO</span><h2>Profil, Abo &amp; Kündigung</h2><p>Kündigung in zwei Schritten (§ 312k BGB). Fair gehen lassen schützt die Marke.</p></div>
+  <div class="row">
+
+    <figure class="shot">
+      <div class="phone"><div class="scr"><div class="sb"><span>20:00</span><span>WLAN</span></div>
+        <div class="body">
+          <div style="display:flex;gap:10px;align-items:center"><div class="avatar" style="width:44px;height:44px;font-size:14px">MR</div><div><b style="font-size:15px">Max R.</b><div class="mu">Stratege · 3.420 Punkte · 🔥 23</div></div></div>
+          <div class="card" style="padding:4px 11px">
+            <div class="ey" style="padding-top:8px">Abo</div>
+            <div class="kv"><span class="mu">Stufe</span><span>Die ersten 100 · 100 €/Monat</span></div>
+            <div class="kv"><span class="mu">Nächste Abbuchung</span><span class="num">01.10.2026</span></div>
+            <div class="kv"><span class="mu">Rechnungen</span><span>12 PDF ›</span></div>
+          </div>
+          <div class="card" style="padding:4px 11px">
+            <div class="ey" style="padding-top:8px">Benachrichtigungen</div>
+            <div class="kv"><span>Daily Pulse</span><span class="num" style="color:var(--beak)">07:00 ●</span></div>
+            <div class="kv"><span>Crash-Warnung</span><span style="color:var(--beak)">●</span></div>
+            <div class="kv"><span>Neue Signale</span><span style="color:var(--beak)">●</span></div>
+            <div class="kv"><span>Community</span><span class="mu">○</span></div>
+          </div>
+          <div class="card" style="padding:4px 11px">
+            <div class="kv"><span>Partner werden</span><span class="mu">›</span></div>
+            <div class="kv"><span>Zertifikate (1)</span><span class="mu">›</span></div>
+            <div class="kv"><span>Daten exportieren</span><span class="mu">›</span></div>
+            <div class="kv"><span class="down">Abo kündigen</span><span class="mu">›</span></div>
+          </div>
+        </div></div></div>
+      <figcaption><b>S-19 · PH-11.1–11.3, 11.5</b><span>Profil &amp; Abo</span><small>„Abo kündigen“ ist direkt sichtbar, nicht versteckt.</small></figcaption>
+    </figure>
+
+    <figure class="shot">
+      <div class="phone"><div class="scr"><div class="sb"><span>20:02</span><span>WLAN</span></div>
+        <div class="body">
+          <span class="back">‹ Profil</span>
+          <div class="ttl">Abo kündigen</div>
+          <div class="card" style="padding:4px 11px">
+            <div class="kv"><span class="mu">Zugang bis</span><span class="num">30.09.2026</span></div>
+            <div class="kv"><span class="mu">Danach</span><span>keine Abbuchung mehr</span></div>
+          </div>
+          <div class="card"><b>Gut zu wissen</b><p class="mu" style="margin:3px 0 0">Deine 3.420 Punkte und dein Academy-Fortschritt bleiben 12 Monate gespeichert. Der Frühbucher-Preis gilt nur bei laufendem Abo.</p></div>
+          <div class="ey">Grund (optional)</div>
+          <div style="display:flex;flex-wrap:wrap;gap:5px"><span class="pill cls">Zu teuer</span><span class="pill cls">Keine Zeit</span><span class="pill cls">Signale</span><span class="pill cls">Anderes</span></div>
+          <div style="margin-top:auto;display:grid;gap:8px;margin-bottom:16px"><span class="btn dang">Jetzt kündigen</span><span class="btn ghost">Abo behalten</span></div>
+        </div></div></div>
+      <figcaption><b>S-20 · PH-11.4, 05.5</b><span>Kündigung</span><small>Zwei Schritte, sachlicher Hinweis, Bestätigung per E-Mail. Grund ist freiwillig.</small></figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ================= CMS ================= -->
+<section class="phase" id="cms">
+  <div class="phase-head"><span class="n">BACKSTAGE</span><h2>Redaktions-CMS</h2><p>Hier entstehen Pulse, Reports, Signale und Academy-Inhalte. Signale brauchen eine zweite Freigabe.</p></div>
+  <div class="row">
+    <figure class="shot wide">
+      <div class="desk"><div class="scr">
+        <div class="side"><div style="display:flex;gap:8px;align-items:center;padding:0 0 10px"><div class="peng" style="--s:20px"><b></b></div><b style="color:var(--p-tx)">BEAK CMS</b></div><div>Daily Pulse</div><div>Reports</div><div class="on">Signale</div><div>Academy</div><div>Community</div><div>Preisstufen</div><div>Partner</div><div>Events</div><div>KPIs</div></div>
+        <div class="main">
+          <div class="hd"><div><div class="ey">Signale · Workflow</div><div class="ttl" style="font-size:24px">Zur Freigabe (2)</div></div><span class="btn" style="padding:8px 14px">+ Neues Signal</span></div>
+          <div class="tblwrap"><table class="tbl">
+            <thead><tr><th>#</th><th>Typ</th><th>Asset</th><th>Erstellt von</th><th>Status</th><th></th></tr></thead>
+            <tbody>
+              <tr><td class="num">0148</td><td><span class="pill buy">KAUF</span></td><td>ETH Zone 2.250–2.350</td><td>A. Albert</td><td><span class="pill swap">PRÜFUNG</span></td><td style="color:var(--beak)">Prüfen ›</td></tr>
+              <tr><td class="num">0147</td><td><span class="pill hdg">HEDGE</span></td><td>BTC Put 58.000</td><td>A. Albert</td><td><span class="pill buy">FREIGEGEBEN</span></td><td class="mu">von J. Brandt · 11:40</td></tr>
+              <tr><td class="num">0146</td><td><span class="pill swap">SWAP</span></td><td>SOL → Gold-Token</td><td>J. Brandt</td><td><span class="pill cls">GESCHLOSSEN</span></td><td class="up num">+11,2 %</td></tr>
+            </tbody></table></div>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:8px">
+            <div class="card"><div class="ey">Aktive Mitglieder</div><b class="num" style="font-size:18px">277</b></div>
+            <div class="card"><div class="ey">DAU / MAU</div><b class="num" style="font-size:18px">64 %</b></div>
+            <div class="card"><div class="ey">Pulse-Öffnung heute</div><b class="num" style="font-size:18px">71 %</b></div>
+            <div class="card"><div class="ey">Churn 12 M.</div><b class="num" style="font-size:18px">3,8 %</b></div>
+          </div>
+        </div>
+      </div></div>
+      <figcaption><b>S-21 · PH-04.4, PH-12</b><span>CMS: Signal-Freigabe &amp; KPIs</span><small>Entwurf → Prüfung → Freigegeben → Geschlossen. Jeder Schritt im Audit-Log. Push erst nach Freigabe.</small></figcaption>
+    </figure>
+  </div>
+</section>
+
+<footer class="note">BEAK App · Mockups v0.1 zu Lastenheft und Pflichtenheft. Low-Fidelity-Entwurf zur Abstimmung von Funktionen und Abläufen, kein finales UI-Design. Alle Kurse, Signale, Personen und Kennzahlen sind erfundene Beispieldaten.</footer>
+</div>
+
+<script>
+(function(){
+  var el=document.getElementById('qr'); if(!el) return;
+  var n=21, s=7, html='';
+  function finder(x,y){var fx=[[0,0],[n-7,0],[0,n-7]];for(var i=0;i<3;i++){var dx=x-fx[i][0],dy=y-fx[i][1];if(dx>=0&&dx<7&&dy>=0&&dy<7){return (dx===0||dx===6||dy===0||dy===6||(dx>1&&dx<5&&dy>1&&dy<5))?1:0;}}return -1;}
+  for(var y=0;y<n;y++)for(var x=0;x<n;x++){var f=finder(x,y),k;if(f!==-1)k=f;else{s=(s*1103515245+12345)&0x7fffffff;k=(s>>16)&1;}html+='<i'+(k?' class="k"':'')+'></i>';}
+  el.innerHTML=html;
+})();
+</script>
