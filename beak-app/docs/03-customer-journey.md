@@ -2,8 +2,8 @@
 
 | | |
 |---|---|
-| **Version** | 0.1 – Entwurf |
-| **Stand** | 25.09.2026 |
+| **Version** | 0.2 – Entwurf |
+| **Stand** | 26.09.2026 |
 | **Bezug** | [Lastenheft](01-lastenheft.md) · [Pflichtenheft](02-pflichtenheft.md) · [Mockups](../mockups/index.html) |
 
 ---
@@ -19,7 +19,7 @@
 ### Persona B – „Macherin Mira“, die Zeitknappe
 - 41, Unternehmerin, 250.000 € Vermögen, davon 15 % Krypto, Rest ETF/Gold.
 - Liest FT, hat aber keine Zeit. Will wissen, was nachts passiert ist, und sich absichern.
-- **Braucht:** 3-Minuten-Überblick, klare Hedging-Signale, Makro-Kontext.
+- **Braucht:** 3-Minuten-Überblick, klare Hedging-Signale für ihre BTC- und ETH-Position, Makro-Kontext.
 - **Kommt über:** Empfehlung im Unternehmer-Netzwerk → Web-Paywall.
 
 ### Persona C – „Gorilla Gerd“, der Partner-Manager
@@ -59,7 +59,7 @@ Legende Emotion: 😟 negativ · 😐 neutral · 🙂 positiv
 
 | | |
 |---|---|
-| **Touchpoints** | Empfehlung durch Partner, Social Clip (Jenga-Turm-Visual), Event-Einladung (S-17) |
+| **Touchpoints** | Einladungslink eines Mitglieds oder Partners, Social Clip (Jenga-Turm-Visual), Event-Einladung (S-17) |
 | **Nutzer tut** | Klickt Partner-Link, sieht Eventseite, meldet sich mit Name und E-Mail an |
 | **Nutzer denkt** | „Schon wieder ein Krypto-Guru?“ |
 | **Emotion** | 😐 skeptisch |
@@ -72,11 +72,11 @@ Legende Emotion: 😟 negativ · 😐 neutral · 🙂 positiv
 | | |
 |---|---|
 | **Touchpoints** | Offline-Seminar, Ticket-QR (S-18), Paywall (S-03) |
-| **Nutzer tut** | Erlebt „Physik der Panik“ live, scannt QR, sieht Preisstufe mit Restplätzen |
+| **Nutzer tut** | Erlebt „Physik der Panik“ live, scannt QR, sieht Preisstufe mit Restplätzen, wählt jährlich (10 % günstiger) oder monatlich |
 | **Nutzer denkt** | „Das erste Mal, dass mir das jemand einfach erklärt.“ / „100 € im Monat ist viel.“ |
 | **Emotion** | 🙂 → 😐 |
 | **Schmerzpunkt** | Preis, Angst vor Abo-Falle |
-| **Chance** | Kündigung jederzeit sichtbar kommunizieren; Preisgarantie erklären; Vorschau auf einen echten Pulse |
+| **Chance** | Monatliche Zahlung als Einstieg ohne großes Risiko; Kündigung jederzeit sichtbar kommunizieren; Preisgarantie erklären; Vorschau auf einen echten Pulse |
 | **Funktionen** | PH-01.4 Paywall, PH-01.5 Referral |
 
 ### Phase 3 – Starten (Onboarding)
@@ -108,7 +108,7 @@ Legende Emotion: 😟 negativ · 😐 neutral · 🙂 positiv
 | | |
 |---|---|
 | **Touchpoints** | Rangaufstieg, Academy Stufe 2/3, Community (S-14), Charity-Voting (S-15), Reports (S-06) |
-| **Nutzer tut** | Erreicht „Stratege“, schreibt Beiträge, stimmt für Spendenprojekt ab, schaut Report-Serie |
+| **Nutzer tut** | Kommentiert täglich (+2 je Kommentar), sammelt Likes, steigt in der 30-Tage-Rangliste, erreicht „Stratege“, stimmt für Spendenprojekt ab |
 | **Nutzer denkt** | „Das ist mein Ort für Finanzen.“ |
 | **Emotion** | 🙂 |
 | **Schmerzpunkt** | Content-Müdigkeit nach 6–9 Monaten |
@@ -120,12 +120,12 @@ Legende Emotion: 😟 negativ · 😐 neutral · 🙂 positiv
 | | |
 |---|---|
 | **Touchpoints** | Partner-Antrag, Partner-Dashboard (S-16), Event anlegen |
-| **Nutzer tut** | Teilt Link mit Freunden, wird Partner, später Manager mit eigenem Seminar |
+| **Nutzer tut** | Teilt seinen Einladungslink (+25 Punkte je Registrierung, +250 bei Abo), wird später Partner mit Geld-Provision, dann Manager mit eigenem Seminar |
 | **Nutzer denkt** | „Wenn es mir geholfen hat, hilft es auch meinem Bruder.“ |
 | **Emotion** | 🙂 |
 | **Schmerzpunkt** | Unklare Provisionsabrechnung |
 | **Chance** | Echtzeit-Dashboard, klare Regeln, monatliche Gutschrift |
-| **Funktionen** | PH-09, PH-10 |
+| **Funktionen** | PH-05.6, PH-09, PH-10 |
 
 ### Phase 7 – Kündigung / Rückkehr (Exit & Win-back)
 
@@ -145,10 +145,10 @@ Legende Emotion: 😟 negativ · 😐 neutral · 🙂 positiv
 | 06:30 | schläft | – | Redaktion schließt Pulse im CMS ab, Freigabe |
 | 07:00 | Wecker, greift zum Handy | Push „Dein Pulse: 5 Themen, 3 min“ | Notification Service versendet nach Zeitzone |
 | 07:02 | liest Pulse | Markt-Ampel „Risk-Off“, Karte „Anleihen-Stress Japan“ | Live-Charts aus Marktdaten-API |
-| 11:40 | Meeting | Push „Neues Hedge-Signal: BTC“ | Analyst erstellt, Freigeber prüft (4 Augen) |
+| 11:40 | Meeting | Push „Neues Hedge-Signal: BTC“ | Admin gibt Signal im Backend ein und veröffentlicht |
 | 12:15 | Mittagspause | Signal-Detail, „Was, wenn es fällt?“ | Signal im Audit-Log |
 | 21:00 | Sofa | Report-Folge „Klumpenrisiko S&P 500“ | CDN liefert Video |
-| 21:20 | kommentiert | Community-Thread | Moderation, +15 Punkte bei 3 Likes |
+| 21:20 | kommentiert | Community-Thread | +2 Punkte für den Kommentar, +1 je erhaltenem Like |
 
 ## 5. Moments of Truth
 
